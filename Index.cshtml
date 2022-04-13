@@ -1,0 +1,44 @@
+
+@using Microsoft.AspNetCore.Http
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+
+
+
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+<h1 style="color:aqua">ViewBage </h1>
+<h2>@ViewBag.name</h2>
+<h2>@ViewBag.name1</h2>
+<h2>@ViewBag.name2</h2>
+<ul>
+    @foreach(var item in ViewBag.name3){
+    <li>@item</li>
+    }
+</ul>
+
+<h1 style="color:aqua">ViewData </h1>
+<h2>@ViewData["demo"]</h2>
+<h2>@ViewData["demo1"]</h2>
+<h2>@ViewData["demo2"]</h2>
+<ul>
+    @foreach(var item in (List<String>)ViewData["demo3"])
+            {
+            <li>@item</li>
+            }
+</ul>
+
+<h1 style="color:aqua">TempData </h1>
+<h2>@TempData["Temp"]</h2>
+<h2>@TempData["Temp1"]</h2>
+<h2>@TempData["Temp2"]</h2>
+<ul>
+    @foreach(var item in(List<String>)TempData["temp3"])
+            {
+                <li>@item</li>
+    }
+</ul>
+
+<h1 style="color:aqua">===== Session ======</h1>
+<h2>@HttpContextAccessor.HttpContext.Session.GetString("name")</h2>
